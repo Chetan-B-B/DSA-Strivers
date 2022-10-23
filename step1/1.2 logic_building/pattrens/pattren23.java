@@ -1,6 +1,9 @@
 // Java Program to print rectangular
 // inner reducing pattern
 // check the image in this folder for the pattren
+
+// watch this video https://www.youtube.com/watch?v=0VtcUKIdNa0&ab_channel=KumarShubham
+// How the variable top, left , bottom and right are initialized? Ans: They are the values of corresponding borders. Top is 0 because it is 0th row. Bottom is the last row hence row length - 1. Left is 0 because it is leftmost column, right is columns count - 1 because it is the rightmost column
 class Pattern23 {
 
     // function to compute pattern
