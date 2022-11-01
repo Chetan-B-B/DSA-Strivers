@@ -1,4 +1,4 @@
-
+// concept if we used int reverse =0 ; Then during reverse during last step while appending 1 to 964632435, The result will be out of int so long value will be converted to int (Which will cause loss few bits in order to convert from long to int —> Concept of Narrowing). 
 class reversenumber {
     public static void main(String[] args) {
         reversenumber s = new reversenumber();
