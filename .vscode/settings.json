@@ -3,5 +3,6 @@
     "step1/1.4 Know basic math",
     "step1/1.2 logic_building/pattrens",
     "step3 array/medium"
+    // "step3 array/*" * will add all the subdirectories
   ]
 }
