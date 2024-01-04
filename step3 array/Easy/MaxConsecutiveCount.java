@@ -17,7 +17,6 @@ public class MaxConsecutiveCount {
                 count = 0;
             }
         }
-        System.out.println(prevCount + " " + count);
         System.out.println(prevCount > count ? prevCount : count);
     }
 }
