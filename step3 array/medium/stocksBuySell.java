@@ -24,7 +24,6 @@ public class stocksBuySell {
     }
 
     public static void optimal(int[] nums) {
-        int n = nums.length;
         int maxProfit = 0;
         int minPrice = Integer.MAX_VALUE;
         for (int a : nums) {
