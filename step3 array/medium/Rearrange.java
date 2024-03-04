@@ -17,6 +17,7 @@ import java.util.Arrays;
 public class Rearrange {
     public static void main(String[] args) {
         bruteforce(new int[] { 1, 2, -4, -5 });
+        System.out.println(Arrays.toString(rearrangeUnequalArray(new int[] { 1, 2, -4, -5, 3, 4 })));
     }
 
     public static void bruteforce(int nums[]) {
@@ -42,4 +43,62 @@ public class Rearrange {
         }
         System.out.println(Arrays.toString(nums));
     }
+
+    public int[] rearrangeArray(int[] arr) {
+        int newArr[] = new int[arr.length];
+        int posIdx = 0;
+        int negIdx = 1;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > 0) {
+                newArr[posIdx] = arr[i];
+                posIdx += 2;
+            } else {
+                newArr[negIdx] = arr[i];
+                negIdx += 2;
+            }
+        }
+        return newArr;
+    }
+
+    public static int[] rearrangeUnequalArray(int[] nums) {
+        // problem is when both pos and neg are not equal
+        ArrayList<Integer> pos = new ArrayList<>();
+        ArrayList<Integer> neg = new ArrayList<>();
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > 0)
+                pos.add(nums[i]);
+            else
+                neg.add(nums[i]);
+        }
+        // Now we have all positives and negatives seperated.
+
+        if (pos.size() > neg.size()) {
+            // first add all the equal numbers of pos and neg to array
+            for (int j = 0; j < neg.size(); j++) {
+                nums[2 * j] = pos.get(j);
+                nums[2 * j + 1] = neg.get(j);
+            }
+            int index = 2 * neg.size(); // index of orignal array to continue.
+            for (int k = neg.size(); k < pos.size(); k++) {
+                nums[index++] = pos.get(k);
+            }
+
+        } else {
+            for (int i = 0; i < pos.size(); i++) {
+                nums[2 * i] = pos.get(i);
+                nums[2 * i + 1] = neg.get(i);
+            }
+            int index = 2 * pos.size();
+            for (int i = pos.size(); i < neg.size(); i++) {
+                nums[index++] = neg.get(i);
+            }
+        }
+
+        return nums;
+    }
+
 }
+// [1,-2,4,-5, 9]
+// [1,4,9]
+// -2,-5
