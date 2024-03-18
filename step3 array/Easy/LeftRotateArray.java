@@ -60,3 +60,16 @@ public class LeftRotateArray {
         // result should look like this {7,6,5,4 ,3,2,1}
     }
 }
+
+// Move left by 3 postion
+
+// 3,7,8,9,10,11}
+// 7,8,9,10,11,3
+// 8,9,10,11,3,7
+// 9,10, 11,3,7,8
+
+// Move right by 2 position
+
+// 1,2,3,4,5,6,7
+// 7,1,2,3,4,5,6
+// 6,7,1,2,3,4,5

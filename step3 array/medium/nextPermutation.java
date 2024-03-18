@@ -51,15 +51,32 @@ public class nextPermutation {
 
     // Driver Code
     public static void main(String[] args) {
-        int[] nums = { 2, 2, 3 };
-        ArrayList<int[]> res = permute(nums);
+        int[] nums = { 1, 2, 3 };
+        // ArrayList<int[]> res = permute(nums);
 
-        // printing result
-        for (int[] x : res) {
-            for (int y : x) {
-                System.out.print(y + " ");
+        // // printing result
+        // for (int[] x : res) {
+        // for (int y : x) {
+        // System.out.print(y + " ");
+        // }
+        // System.out.println();
+        // }
+        permaution_better_approach(nums);
+    }
+
+    static void permaution_better_approach(int[] nums) {
+
+        // find the increment point from last index
+        // arr[i] > arr[j]
+        int i = -1;
+        int len = nums.length;
+        for (int j = len - 2; j >= 0; j--) {
+            if (nums[j] < nums[j + 1]) {
+                i = j;
+                break;
             }
-            System.out.println();
         }
+        System.out.println(i);
+
     }
 }
