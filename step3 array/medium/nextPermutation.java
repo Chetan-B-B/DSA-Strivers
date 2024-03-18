@@ -61,7 +61,7 @@ public class nextPermutation {
         // }
         // System.out.println();
         // }
-        permaution_better_approach(nums);
+        permaution_better_approach(new int[] { 2, 1, 5, 4, 3, 0, 0 });
     }
 
     static void permaution_better_approach(int[] nums) {
@@ -76,7 +76,39 @@ public class nextPermutation {
                 break;
             }
         }
-        System.out.println(i);
+        if (i == -1) {
+            // array is sorted in Descending order in that case we need to return ascending
+            // order
+            Arrays.sort(nums);
+            System.out.println(nums);
+            return;
+        }
+        System.err.println(i);
+        // (I'm going in reverse order bcz we see the increment point so I'll find the
+        // pint easily , imagine them in
+        // graph plot)
+        // iterate from last index to small to find the number slightly grater number.
+        for (int j = len - 1; j > i; j--) {
+            if (nums[j] > nums[i]) {
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+                break;
+            }
+        }
+        System.out.println(Arrays.toString(nums));
 
+        // Step 3: reverse the right half
+        reverseAarray(nums, i + 1, len - 1);
+        System.out.println(Arrays.toString(nums));
+    }
+
+    static void reverseAarray(int[] nums, int start, int end) {
+        int temp = 0;
+        while (start < end) {
+            temp = nums[start];
+            nums[start++] = nums[end];
+            nums[end--] = temp;
+        }
     }
 }
