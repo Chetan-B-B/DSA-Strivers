@@ -8,6 +8,7 @@ public class SetMatrixZero {
                 { 0, 1, 2, 0 },
                 { 3, 4, 5, 2 },
                 { 1, 3, 1, 5 } });
+        SetMatrixWithZeroBest.setZeroes(new int[][] { { 1 }, { 0 }, { 3 } });
     }
 
     static void setMatrixWithZero(int[][] nums) {
@@ -74,5 +75,58 @@ class SetMatrixZeroBetter {
             }
         }
         System.out.println(Arrays.deepToString(nums));
+    }
+}
+
+class SetMatrixWithZeroBest {
+    // idea is to reduce the space complexity. instead of storing rows and columns,
+    // we'll story the results in the nums array it self
+    public static void setZeroes(int[][] matrix) {
+        int col0 = 1;
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (matrix[i][j] == 0) {
+                    matrix[i][0] = 0;
+
+                    if (j != 0) {
+                        matrix[0][j] = 0;
+                    } else {
+                        col0 = 0;
+                    }
+                }
+            }
+
+        }
+        for (int i = 1; i < rows; i++) {
+            for (int j = 1; j < cols; j++) {
+                if (matrix[i][j] != 0) {
+                    if (matrix[i][0] == 0 || matrix[0][j] == 0) {
+                        matrix[i][j] = 0;
+                    }
+                }
+            }
+        }
+        if (matrix[0][0] == 0) {
+            for (int i = 0; i < cols; i++)
+                matrix[0][i] = 0;
+        }
+        if (col0 == 0) {
+            for (int i = 0; i < rows; i++)
+                matrix[i][0] = 0;
+        }
+        int[][][][] arr = new int[][][][] {
+                {
+                        { { 0 }, { 1 }, { 2 }, { 0 } },
+                        { { 3 }, { 4 }, { 5 }, { 2 } },
+                        { { 1 }, { 3 }, { 1 }, { 5 } }
+                }
+        };
+        int[] arr2 = new int[] { 1, 2, 3, 4 };
+        System.out.println(Arrays.deepToString(arr));
+        // System.out.println(Arrays.deepToString(arr2)); it won't work for 1D array
+        System.out.println(Arrays.deepToString(matrix));
     }
 }
