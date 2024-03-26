@@ -9,6 +9,18 @@ public class SpiralTraverseArray {
     }
 
     static void spiralArray(int[][] nums) {
+        int rows = nums.length;
+        int cols = nums[0].length;
+
+        int top = 0, right = nums[0].length - 1, left = 1, bottom = 1;
+        while (left < right && top < bottom) {
+            // print left
+            System.out.println("not printing");
+            for (int i = 0; i < cols; i++) {
+                System.out.println(nums[0][left++]);
+            }
+
+        }
 
     }
 }
