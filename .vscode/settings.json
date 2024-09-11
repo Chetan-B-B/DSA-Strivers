@@ -2,9 +2,10 @@
   "java.project.sourcePaths": [
     "step3 array/medium",
     "step3 array/hard",
+    "step3 array/Easy",
     "step1/1.5 Recurrsion",
     "step1/1.4 Know basic math",
     "step1/1.2 logic_building/pattrens",
-    "step3 array/Easy"
+    "design_guru/warmup"
   ]
 }
