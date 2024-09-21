@@ -24,7 +24,29 @@ public class SquareArrays {
         System.out.println(Arrays.toString(arr));
     }
 
+    static void usingTwoPointers(int[] nums) {
+        int[] squares = new int[nums.length];
+        int highestIdx = nums.length - 1;
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int leftSquare = nums[left] * nums[left];
+            int rightSquare = nums[right] * nums[right];
+            if (leftSquare >= rightSquare) {
+                squares[highestIdx--] = leftSquare;
+                left++;
+
+            } else {
+                squares[highestIdx--] = rightSquare;
+                right--;
+            }
+
+        }
+        System.out.println(Arrays.toString(squares));
+
+    }
+
     public static void main(String[] args) {
         naiveSqaureArrays(new int[] { -2, -1, 0, 2, 3 });
+        usingTwoPointers(new int[] { -2, -1, 0, 2, 3 });
     }
 }
