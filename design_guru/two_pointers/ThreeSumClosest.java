@@ -4,6 +4,8 @@ import java.util.*;
 
 public class ThreeSumClosest {
     static int threeSumClosest(int[] arr, int target) {
+        // idea is generate all the sub arrays but instead of o(n3) we do at 0(n2) by
+        // keeping arr[i] as constent and generating all the value
         int res = 0;
         int n = arr.length;
         Arrays.sort(arr);
